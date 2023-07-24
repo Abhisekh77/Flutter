@@ -9,11 +9,20 @@ class HomePage extends StatelessWidget {
     final String name = "Abhi";
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        title: Text("ABCDE App"),
       ),
       body: Center(
-        child: Container(
-          child: Text("Welcome to $days days of Flutter by $name"),
+        child: Column(
+          children: [
+            Image.asset("assets/login_image.png"),
+            Container(
+              child: Text("Welcome to $days days of Flutter by $name Khanal"),
+            ),
+            Image.asset(
+              "assets/login_image.png",
+              fit: BoxFit.cover,
+            ),
+          ],
         ),
       ),
       drawer: Drawer(),
