@@ -9,6 +9,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  local_image_provider: ^4.3.0
+
+  # for google font installed from pubdev
+  google_fonts: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +21,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # to add asssets in our application
+
+  assets:
+    - assets/
+#  assets:
+#   - assets/images
+
