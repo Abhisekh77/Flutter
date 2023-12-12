@@ -10,10 +10,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  //  formfield ko lagi hai
   final _formkey = GlobalKey<FormState>();
   String _username = '';
   String _password = '';
+
+  // Add fixed username and password here
+  static const String fixedUsername = '9845763365';
+  static const String fixedPassword = 'abhi123';
 
   moveToHome(BuildContext context) {
     setState(() {});
@@ -42,7 +45,6 @@ class _LoginPageState extends State<LoginPage> {
             height: 10.0,
           ),
           Padding(
-            // padding: const EdgeInsets.all(20.0),
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             child: Column(
               children: [
@@ -57,9 +59,11 @@ class _LoginPageState extends State<LoginPage> {
                     }
                     return null;
                   },
+                  onSaved: (value) {
+                    _username = value!;
+                  },
                 ),
                 TextFormField(
-                  // obscureText ley password lai hide garxa, bydefault false hunxa
                   obscureText: true,
                   decoration: InputDecoration(
                     hintText: "Enter Password",
@@ -73,6 +77,9 @@ class _LoginPageState extends State<LoginPage> {
                     }
                     return null;
                   },
+                  onSaved: (value) {
+                    _password = value!;
+                  },
                 ),
                 SizedBox(
                   height: 10.0,
@@ -80,14 +87,38 @@ class _LoginPageState extends State<LoginPage> {
                 ElevatedButton(
                   onPressed: () {
                     if (_formkey.currentState?.validate() ?? false) {
-                      // Proceed to the home page or any other action you want here
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      );
+                      _formkey.currentState?.save();
+
+                      // Check if entered credentials match the fixed values
+                      if (_username == fixedUsername &&
+                          _password == fixedPassword) {
+                        // Proceed to the home page or any other action you want here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomePage()),
+                        );
+                      } else {
+                        // Display error message for incorrect credentials
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text("Invalid Username or Password"),
+                            content: Text(
+                                "Please enter valid username and password."),
+                            actions: [
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text("OK"),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
                     }
                   },
-                  child: Text('Login'), // Add the child widget here
+                  child: Text('Login'),
                   style: TextButton.styleFrom(minimumSize: Size(130, 40)),
                 ),
               ],
