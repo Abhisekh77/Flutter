@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Weather app",
       themeMode: ThemeMode.light,
       theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
