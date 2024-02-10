@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_first_project/pages/admin_login.dart';
+import 'package:my_first_project/pages/admincopy.dart';
 import 'package:my_first_project/utils/routes.dart';
 import 'package:my_first_project/pages/home_page.dart';
 
@@ -146,8 +146,10 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => AdminPage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AdminPage1()));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors

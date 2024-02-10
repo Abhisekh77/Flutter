@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_project/pages/login_page.dart';
-import '../pages/water_usage.dart';
-import '../pages/admin_login.dart';
+import 'package:my_first_project/pages/watertank.dart';
+import '../pages/admincopy.dart';
+
 import '../pages/weatherpage.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -57,7 +58,7 @@ class MyDrawer extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AdminPage()),
+                    MaterialPageRoute(builder: (context) => AdminPage1()),
                   );
                 },
                 child: ListTile(
@@ -65,6 +66,21 @@ class MyDrawer extends StatelessWidget {
                       Icon(Icons.admin_panel_settings, color: Colors.black),
                   title:
                       Text("Admin Page", style: TextStyle(color: Colors.black)),
+                ),
+              ),
+
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => WaterTank()),
+                  );
+                },
+                child: ListTile(
+                  leading:
+                      Icon(Icons.admin_panel_settings, color: Colors.black),
+                  title:
+                      Text("WaterTank", style: TextStyle(color: Colors.black)),
                 ),
               ),
 
@@ -80,37 +96,6 @@ class MyDrawer extends StatelessWidget {
                   title: Text("Weather", style: TextStyle(color: Colors.black)),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => WaterMeter(
-                              previousUnit: 100,
-                              todayUnit: 125,
-                            )),
-                  );
-                },
-                child: ListTile(
-                  leading: Icon(Icons.water, color: Colors.black),
-                  title:
-                      Text("Watermeter", style: TextStyle(color: Colors.black)),
-                ),
-              ),
-              // ListTile(
-              //   leading: Icon(Icons.verified_user, color: Colors.black),
-              //   title:
-              //       Text("My Profile", style: TextStyle(color: Colors.black)),
-              // ),
-              // ListTile(
-              //   leading: Icon(Icons.search, color: Colors.black),
-              //   title:
-              //       Text("Search here", style: TextStyle(color: Colors.black)),
-              // ),
-              // ListTile(
-              //   leading: Icon(Icons.email, color: Colors.black),
-              //   title: Text("Email me", style: TextStyle(color: Colors.black)),
-              // ),
 
               GestureDetector(
                 onTap: () {
