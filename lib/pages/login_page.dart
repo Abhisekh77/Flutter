@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_project/pages/admin_login.dart';
 import 'package:my_first_project/utils/routes.dart';
 import 'package:my_first_project/pages/home_page.dart';
 
@@ -15,8 +16,8 @@ class _LoginPageState extends State<LoginPage> {
   String _password = '';
 
   // Add fixed username and password here
-  static const String fixedUsername = '9845763365';
-  static const String fixedPassword = 'abhi123';
+  static const String fixedUsername = '111111';
+  static const String fixedPassword = '111111';
 
   moveToHome(BuildContext context) {
     setState(() {});
@@ -38,8 +39,8 @@ class _LoginPageState extends State<LoginPage> {
             height: 10.0,
           ),
           Text(
-            "Welcome to Login Page",
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            "Welcome User",
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
           SizedBox(
             height: 10.0,
@@ -118,9 +119,44 @@ class _LoginPageState extends State<LoginPage> {
                       }
                     }
                   },
-                  child: Text('Login'),
-                  style: TextButton.styleFrom(minimumSize: Size(130, 40)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor:
+                        Colors.blueAccent[700], // Set the primary color to red
+                  ),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  // style: TextButton.styleFrom(minimumSize: Size(130, 40)),
                 ),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // Text(
+                //   "Admin Page",
+                //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                // ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                    "-------------------------------OR------------------------------"),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => AdminPage()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors
+                          .blueAccent[700], // Set the primary color to red
+                    ),
+                    child: Text(
+                      "Login to Admin",
+                      style: TextStyle(fontSize: 17),
+                    ))
               ],
             ),
           ),
